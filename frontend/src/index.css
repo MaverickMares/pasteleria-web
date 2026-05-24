@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    @apply font-lato text-gray-700 bg-crema;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  .btn-rosa {
+    @apply bg-rosa-400 hover:bg-rosa-500 text-white font-lato font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0;
+  }
+  .btn-outline-rosa {
+    @apply border-2 border-rosa-400 text-rosa-500 hover:bg-rosa-50 font-lato font-semibold py-2 px-5 rounded-full transition-all duration-300;
+  }
+  .card-producto {
+    @apply bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden hover:-translate-y-1;
+  }
+  .seccion-titulo {
+    @apply text-3xl md:text-4xl font-playfair text-gray-800 mb-3;
+  }
+  .seccion-subtitulo {
+    @apply text-gray-500 font-lato text-base md:text-lg;
+  }
+}
+
+/* Scrollbar suave */
+html {
+  scroll-behavior: smooth;
+}

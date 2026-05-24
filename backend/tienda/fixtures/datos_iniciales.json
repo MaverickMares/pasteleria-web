@@ -1,0 +1,163 @@
+[
+  {
+    "model": "tienda.configuracion",
+    "pk": 1,
+    "fields": {
+      "nombre_pasteleria": "Melani's Sweet Creations",
+      "numero_whatsapp": "+34638982368",
+      "instagram": "@melani_cabrelles",
+      "facebook": "",
+      "direccion": "Olot, España",
+      "descripcion": "Cafetería · postres · celebraciones. Especialistas en tartas de cumpleaños y eventos pequeños con mucho amor y creatividad.",
+      "logo": ""
+    }
+  },
+  {
+    "model": "tienda.categoria",
+    "pk": 1,
+    "fields": {
+      "nombre": "Tartas",
+      "descripcion": "Tartas artesanas personalizadas para cumpleaños, bodas y cualquier ocasión especial.",
+      "imagen": ""
+    }
+  },
+  {
+    "model": "tienda.categoria",
+    "pk": 2,
+    "fields": {
+      "nombre": "Cafetería",
+      "descripcion": "El rincón perfecto para disfrutar de un buen café acompañado de nuestros dulces del día.",
+      "imagen": ""
+    }
+  },
+  {
+    "model": "tienda.categoria",
+    "pk": 3,
+    "fields": {
+      "nombre": "Postres",
+      "descripcion": "Postres creativos elaborados con ingredientes frescos y mucho cariño.",
+      "imagen": ""
+    }
+  },
+  {
+    "model": "tienda.categoria",
+    "pk": 4,
+    "fields": {
+      "nombre": "Celebraciones",
+      "descripcion": "Packs especiales para hacer de tus eventos pequeños algo verdaderamente memorable.",
+      "imagen": ""
+    }
+  },
+  {
+    "model": "tienda.producto",
+    "pk": 1,
+    "fields": {
+      "nombre": "Tarta de Cumpleaños Personalizada",
+      "descripcion": "Tarta artesana decorada a mano según tus gustos. Relleno a elegir: nata, trufa, fresas o chocolate. Dinos el tema y lo hacemos realidad.",
+      "precio": "35.00",
+      "imagen": "",
+      "categoria": 1,
+      "disponible": true,
+      "destacado": true,
+      "creado": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "tienda.producto",
+    "pk": 2,
+    "fields": {
+      "nombre": "Tarta Red Velvet",
+      "descripcion": "Clásica tarta red velvet con frosting de queso crema. Húmeda, esponjosa y con ese color rojo intenso que la hace inconfundible. Perfecta para regalar.",
+      "precio": "28.00",
+      "imagen": "",
+      "categoria": 1,
+      "disponible": true,
+      "destacado": true,
+      "creado": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "tienda.producto",
+    "pk": 3,
+    "fields": {
+      "nombre": "Café con Tarta del Día",
+      "descripcion": "Combinación perfecta: un café al gusto acompañado de un trozo generoso de nuestra tarta del día. Cambiamos la tarta cada día para sorprenderte.",
+      "precio": "4.50",
+      "imagen": "",
+      "categoria": 2,
+      "disponible": true,
+      "destacado": true,
+      "creado": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "tienda.producto",
+    "pk": 4,
+    "fields": {
+      "nombre": "Merienda Especial",
+      "descripcion": "Bebida caliente a elegir (café, té o chocolate) con dos mini dulces de temporada. El capricho perfecto para la tarde.",
+      "precio": "5.50",
+      "imagen": "",
+      "categoria": 2,
+      "disponible": true,
+      "destacado": false,
+      "creado": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "tienda.producto",
+    "pk": 5,
+    "fields": {
+      "nombre": "Tarta de Fresas y Nata",
+      "descripcion": "Bizcocho esponjoso de vainilla, relleno de nata montada y fresas naturales de temporada. Fresco, ligero y delicioso. Disponible por porciones.",
+      "precio": "4.00",
+      "imagen": "",
+      "categoria": 3,
+      "disponible": true,
+      "destacado": false,
+      "creado": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "tienda.producto",
+    "pk": 6,
+    "fields": {
+      "nombre": "Mousse de Chocolate",
+      "descripcion": "Mousse artesano de chocolate negro 70% con textura sedosa y aireada. Servido en vasito individual con coulis de frambuesa.",
+      "precio": "3.50",
+      "imagen": "",
+      "categoria": 3,
+      "disponible": true,
+      "destacado": false,
+      "creado": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "tienda.producto",
+    "pk": 7,
+    "fields": {
+      "nombre": "Pack Cumpleaños Completo",
+      "descripcion": "Tarta personalizada mediana + 12 cupcakes a juego + decoración incluida. Todo coordinado con el tema que elijas. Pregúntanos sin compromiso.",
+      "precio": "65.00",
+      "imagen": "",
+      "categoria": 4,
+      "disponible": true,
+      "destacado": true,
+      "creado": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "tienda.producto",
+    "pk": 8,
+    "fields": {
+      "nombre": "Mesa Dulce para Eventos",
+      "descripcion": "Montaje completo de mesa dulce para eventos pequeños (hasta 20 personas). Incluye tarta central, postres variados y decoración temática.",
+      "precio": "120.00",
+      "imagen": "",
+      "categoria": 4,
+      "disponible": true,
+      "destacado": false,
+      "creado": "2024-01-01T00:00:00Z"
+    }
+  }
+]
