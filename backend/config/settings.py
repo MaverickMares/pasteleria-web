@@ -2,16 +2,17 @@ from pathlib import Path
 from decouple import config, Csv
 import dj_database_url
 
-# Directorio raíz del proyecto
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Clave secreta — en producción usar variable de entorno SECRET_KEY
 SECRET_KEY = config("SECRET_KEY", default="django-insecure-dev-key-cambiar-en-produccion")
-
-# Modo debug — False en producción
 DEBUG = config("DEBUG", default=True, cast=bool)
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="localhost,127.0.0.1", cast=Csv())
+
+# En Railway, el dominio público se inyecta automáticamente como variable de entorno
+_railway_domain = config("RAILWAY_PUBLIC_DOMAIN", default=None)
+if _railway_domain and _railway_domain not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(_railway_domain)
 
 # ─── Aplicaciones instaladas ───────────────────────────────────────────────────
 INSTALLED_APPS = [
@@ -21,18 +22,16 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # Librerías de terceros
     "rest_framework",
     "corsheaders",
-    # Aplicación de la pastelería
     "tienda",
 ]
 
 # ─── Middleware ────────────────────────────────────────────────────────────────
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # Archivos estáticos en producción
-    "corsheaders.middleware.CorsMiddleware",        # CORS antes de CommonMiddleware
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -61,6 +60,8 @@ TEMPLATES = [
 WSGI_APPLICATION = "config.wsgi.application"
 
 # ─── Base de datos ─────────────────────────────────────────────────────────────
+# En Railway usa PostgreSQL (DATABASE_URL se inyecta automáticamente)
+# En local usa SQLite por defecto
 DATABASE_URL = config("DATABASE_URL", default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}")
 DATABASES = {"default": dj_database_url.parse(DATABASE_URL)}
 
@@ -98,8 +99,7 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 50,
 }
 
-# ─── CORS (Cross-Origin Resource Sharing) ────────────────────────────────────
-# En desarrollo permite el servidor de Vite; en producción usar el dominio real
+# ─── CORS ────────────────────────────────────────────────────────────────────
 CORS_ALLOWED_ORIGINS = config(
     "CORS_ALLOWED_ORIGINS",
     default="http://localhost:5173,http://127.0.0.1:5173",
