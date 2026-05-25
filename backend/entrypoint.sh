@@ -6,9 +6,12 @@ python manage.py loaddata tienda/fixtures/datos_iniciales.json || true
 python manage.py shell -c "
 from django.contrib.auth.models import User
 if not User.objects.filter(username='admin').exists():
-    User.objects.create_superuser('admin', 'admin@melanisweetcreations.com', 'admin123')
+    User.objects.create_superuser('admin', 'admin@melanisweetcreations.com', 'hazel18')
     print('Superusuario creado')
 else:
-    print('Superusuario ya existe')
+    user = User.objects.get(username='admin')
+    user.set_password('hazel18')
+    user.save()
+    print('Contraseña actualizada')
 "
 exec gunicorn config.wsgi:application --bind "0.0.0.0:${PORT:-8000}" --workers 2 --timeout 120
