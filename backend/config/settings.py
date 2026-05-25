@@ -106,3 +106,8 @@ CORS_ALLOWED_ORIGINS = config(
     cast=Csv(),
 )
 CORS_ALLOW_ALL_ORIGINS = config("CORS_ALLOW_ALL_ORIGINS", default=False, cast=bool)
+
+# ─── CSRF / Cookies ──────────────────────────────────────────────────────────
+CSRF_TRUSTED_ORIGINS = ["https://pasteleria-web-production-b984.up.railway.app"]
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
